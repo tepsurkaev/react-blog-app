@@ -1,11 +1,12 @@
 import "./reset.css";
 import "./index.css";
+import Header from "./shared/ui/Header/index";
 
 const App = () => {
   return (
-    <>
-      <h1>hello world</h1>
-    </>
+    <div>
+      <Header />
+    </div>
   );
 };
 
