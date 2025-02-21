@@ -1,0 +1,14 @@
+.blogsWrapper {
+    padding: 10px;
+}
+
+.blogList {
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.blogTitle {
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}

@@ -1,11 +1,9 @@
 .headerWrapper {
-  margin: auto;
   border: 1px solid black;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 500px;
   height: 50px;
   padding: 10px;
 }
