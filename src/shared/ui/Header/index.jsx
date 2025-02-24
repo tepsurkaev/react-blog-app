@@ -7,8 +7,8 @@ function Header() {
     <div className={styles.headerWrapper}>
       <h1 className={styles.headerLogo}>logo</h1>
       <div className={styles.icons}>
-        <ProfileIcon />
-        <BookmarkIcon />
+        <BookmarkIcon className={styles.prof_icon} />
+        <ProfileIcon className={styles.prof_icon} />
       </div>
     </div>
   );
