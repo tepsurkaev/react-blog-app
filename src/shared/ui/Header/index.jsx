@@ -1,12 +1,14 @@
 import styles from "./header.module.css";
+import ProfileIcon from "../icons/ProfileIcon";
+import BookmarkIcon from "../icons/BookmarkIcon";
 
 function Header() {
   return (
     <div className={styles.headerWrapper}>
       <h1 className={styles.headerLogo}>logo</h1>
       <div className={styles.icons}>
-        <img src="/bookmark-fill.svg" alt="bookmarkError" />
-        <img src="/person-circle.svg" alt="erson-circleError" />
+        <BookmarkIcon className={styles.prof_icon} />
+        <ProfileIcon className={styles.prof_icon} />
       </div>
     </div>
   );
