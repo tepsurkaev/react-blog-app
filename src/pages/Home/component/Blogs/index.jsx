@@ -1,4 +1,4 @@
-import blogsData from "../../../blogs.json";
+import blogsData from "../../../../blogs.json";
 import styles from "./blogs.module.css";
 const Blogs = () => {
   return (

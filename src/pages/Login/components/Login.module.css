@@ -1,0 +1,39 @@
+.loginWrapper {
+  text-align: center;
+}
+
+.loginForma {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+input {
+  width: 300px;
+  padding: 7px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: black;
+}
+
+.btn {
+  width: 300px;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #282828;
+  color: #fff;
+}
+
+.loginTitle {
+  font-size: 21px;
+  font-weight: bold;
+}
