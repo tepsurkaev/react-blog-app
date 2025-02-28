@@ -1,14 +1,20 @@
 import "./reset.css";
 import "./index.css";
 import styles from "./app.module.css";
-import Header from "./shared/ui/Header/index";
-import Blogs from "./shared/ui/Blogs/index";
+import Blogs from "./pages/Home/component/Blogs/index";
+import Login from "./pages/Login/components/index";
+import { Routes, Route } from "react-router";
+import Layout from "./shared/ui/Layout";
 
 const App = () => {
   return (
     <div className={styles.container}>
-      <Header />
-      <Blogs />
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Blogs />} />
+        </Route>
+      </Routes>
     </div>
   );
 };
