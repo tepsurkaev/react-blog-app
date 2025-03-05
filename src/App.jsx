@@ -1,8 +1,8 @@
 import "./reset.css";
 import "./index.css";
 import styles from "./app.module.css";
-import Blogs from "./pages/Home/component/Blogs/index";
-import Login from "./pages/Login/components/index";
+import Blogs from "./pages/Home/index";
+import Login from "./pages/Login/index";
 import { Routes, Route } from "react-router";
 import Layout from "./shared/ui/Layout";
 
