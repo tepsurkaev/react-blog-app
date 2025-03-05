@@ -1,9 +1,12 @@
-import blogsData from "../../blogs.json";
+import { useSelector } from "react-redux";
 import styles from "./blogs.module.css";
+
 const Blogs = () => {
+  const blogs = useSelector((state) => state.blog.blogs);
+
   return (
     <div className={styles.blogsWrapper}>
-      {blogsData.blogs.map((blog) => (
+      {blogs.map((blog) => (
         <div className={styles.blogList} key={blog.id}>
           <h2 className={styles.blogTitle}>{blog.title}</h2>
           <p>{blog.content}</p>
