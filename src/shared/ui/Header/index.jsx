@@ -1,14 +1,13 @@
-import styles from "./header.module.css";
 import ProfileIcon from "../icons/ProfileIcon";
 import BookmarkIcon from "../icons/BookmarkIcon";
 
 function Header() {
   return (
-    <div className={styles.headerWrapper}>
-      <h1 className={styles.headerLogo}>logo</h1>
-      <div className={styles.icons}>
-        <BookmarkIcon className={styles.prof_icon} />
-        <ProfileIcon className={styles.prof_icon} />
+    <div className="border border-black rounded-[10px] flex justify-between items-center h-[50px] p-[10px] mb-[20px]">
+      <h1 className="text-[24px]">logo</h1>
+      <div className="flex gap-[6px]">
+        <BookmarkIcon className="w-[25px] h-[25px]" />
+        <ProfileIcon className="w-[25px] h-[25px]" />
       </div>
     </div>
   );
