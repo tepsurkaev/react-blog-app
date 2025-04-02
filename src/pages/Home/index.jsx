@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllBlogs, deleteBlogById } from "../../features/blogs/blogSlice";
 import { Link } from "react-router";
+import BlogForm from "./Components/blogForm";
 
 const Blogs = () => {
   const dispatch = useDispatch();
@@ -17,11 +18,13 @@ const Blogs = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>loading...</div>;
   }
 
   return (
+  
     <div className="p-[10px]">
+        <BlogForm/>
       {blogs.map((blog) => (
         <div className="mb-[30px]" key={blog.id}>
           <h2 className="mb-[8px] text-[18px] font-bold">{blog.title}</h2>
