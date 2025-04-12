@@ -1,18 +1,18 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { fetchAllBlogs, deleteBlogById } from "../../features/blogs/blogSlice";
 import { Link } from "react-router";
-import BlogForm from "./Components/blogForm";
+import BlogForm from "./Components/BlogForm";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 const Blogs = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const { blogs, loading } = useSelector((state) => state.blog);
+  const { blogs, loading } = useAppSelector((state) => state.blog);
 
-  const handleDelete = (blogId) => {
+  const handleDelete = (blogId: string) => {
     dispatch(deleteBlogById(blogId));
   };
-  
+
   useEffect(() => {
     dispatch(fetchAllBlogs());
   }, [dispatch]);
@@ -22,15 +22,16 @@ const Blogs = () => {
   }
 
   return (
-  
     <div className="p-[10px]">
-        <BlogForm/>
+      <BlogForm />
       {blogs.map((blog) => (
         <div className="mb-[30px]" key={blog.id}>
           <h2 className="mb-[8px] text-[18px] font-bold">{blog.title}</h2>
           <p>{blog.content}</p>
           <Link to={`/blog/${blog.id}`}>
-            <button className="p-[10px] mt-[10px] w-[100%] border rounded-[10px]">Посмотреть</button>
+            <button className="p-[10px] mt-[10px] w-[100%] border rounded-[10px]">
+              Посмотреть
+            </button>
           </Link>
           <button
             onClick={() => handleDelete(blog.id)}
