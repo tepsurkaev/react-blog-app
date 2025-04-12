@@ -1,14 +1,15 @@
 import { Link, useParams } from "react-router";
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 import { fetchBlogById } from "../../features/blogs/blogSlice";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 export default function Blog() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const params = useParams();
 
-  const loading = useSelector((state) => state.blog.loading);
-  const blog = useSelector((state) => state.blog.blog);
+  const loading = useAppSelector((state) => state.blog.loading);
+  const blog = useAppSelector((state) => state.blog.blog);
 
   useEffect(() => {
     dispatch(fetchBlogById(params.blogId));

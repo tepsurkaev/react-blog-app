@@ -1,30 +1,44 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IState, Blog } from "../../utils/interfaces";
 
 const url = "http://localhost:8080/blogs";
 
 export const deleteBlogById = createAsyncThunk(
   "blogs/deleteById",
-  async (blogId) => {
+  async (blogId: string) => {
     await fetch(`${url}/${blogId}`, { method: "DELETE" });
     return blogId;
   }
 );
 
-export const fetchAllBlogs = createAsyncThunk("blogs/fetchAll",  async() => {
+export const fetchAllBlogs = createAsyncThunk("blogs/fetchAll", async () => {
   const response = await fetch(url);
   return response.json();
 });
 
 export const fetchBlogById = createAsyncThunk(
   "blogs/fetchById",
-  async (blogId) => {
+  async (blogId: string) => {
     const response = await fetch(`${url}/${blogId}`);
     return response.json();
   }
 );
 
-const initialState = {
+export const createBlog = createAsyncThunk(
+  "blogs/create",
+  async (blog: { title: string; content: string }) => {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(blog),
+    });
+    return response.json();
+  }
+);
+
+const initialState: IState = {
   loading: false,
+  createLoading: false,
   blogs: [],
   blog: null,
 };
@@ -57,9 +71,17 @@ const blogSlice = createSlice({
         state.loading = true;
       })
       .addCase(deleteBlogById.fulfilled, (state, action) => {
-        // [{id:2}, {id:3}].fukter((item) => blog.id)
         state.loading = false;
         state.blogs = state.blogs.filter((blog) => blog.id !== action.payload);
+      });
+
+    builder
+      .addCase(createBlog.pending, (state) => {
+        state.createLoading = true;
+      })
+      .addCase(createBlog.fulfilled, (state, action: PayloadAction<Blog>) => {
+        state.createLoading = false;
+        state.blogs.unshift(action.payload);
       });
   },
 });
